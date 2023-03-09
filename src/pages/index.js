@@ -4,6 +4,11 @@ import Map from 'react-map-gl'
 import DeckGL from '@deck.gl/react';
 import { NewYorkTreesLayer } from '../layers/scatterplot/new-york-trees'
 import { CATransitStops } from '@/layers/heatmap/ca-stops';
+import { LABusinessesLayer } from '@/layers/hexagon/la-active-businesses';
+
+import { useState } from 'react';
+
+
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieXV5YWZ1amltb3RvIiwiYSI6ImNsZWdyZDA4NTA1ZGwzeG53Y2c2OGY0bjAifQ._mbKMYj_moCfX1GcJmxAJg'
 const INITIAL_VIEW_STATE = {
   longitude: -122.4,
@@ -11,8 +16,17 @@ const INITIAL_VIEW_STATE = {
   zoom: 5,
 };
 
+const layers = {
+  '1': NewYorkTreesLayer,
+  '2': LABusinessesLayer,
+}
+
 export default function Home() {
+  const [layerId, setLayerId] = useState('1');
+  const { LayerClass, layerOptions } = layers[layerId]
+  const layer = layers[layerId].layer;
   return (
+
     <>
       <Head>
         <title>Create Next App</title>
@@ -21,9 +35,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="">
+        <div className='absolute w-screen h-16 flex place-content-evenly z-10'>
+          <button className=' bg-blue-300 rounded-sm m-4 p-2' onClick={() => {
+            setLayerId('1')
+          }}> NY Map </button>
+          <button className=' bg-blue-300 rounded-sm m-4 p-2' onClick={() => {
+            setLayerId('2')
+          }}> LA Map </button>
+        </div>
         <DeckGL
           initialViewState={INITIAL_VIEW_STATE}
-          layers={CATransitStops.layer}
+          layers={layer}
           controller={true}
         >
           <Map

@@ -25,5 +25,6 @@ const layer = new ScatterplotLayer({
 
 export const NewYorkTreesLayer = {
     layer,
-    initialViewState
+    initialViewState,
+    LayerClass: ScatterplotLayer,
 };
