@@ -1,6 +1,6 @@
 import Slider from "./slider";
 import Check from "./check";
-import Selection from "./selectionList";
+import Selection from "./selectionlist";
 
 const Menu = ({ prefectureData, selectedPrefecture, setPrefecture }) => {
   return (
