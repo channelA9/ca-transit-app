@@ -1,5 +1,4 @@
-
-import Selection from "./selectionList";
+import Selection from "src/components/selectionList";
 
 const Menu = ({ prefectureData, selectedPrefecture, setPrefecture }) => {
   return (
