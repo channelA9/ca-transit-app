@@ -1,4 +1,6 @@
-import Selection from "src/components/selectionList";
+import Slider from "./slider";
+import Check from "./check";
+import Selection from "./selectionList";
 
 const Menu = ({ prefectureData, selectedPrefecture, setPrefecture }) => {
   return (
@@ -20,12 +22,5 @@ const Menu = ({ prefectureData, selectedPrefecture, setPrefecture }) => {
     </div>
   );
 };
-
-/* <h3 className="text-white pt-4">Layers</h3>
-<Check title="Stations" />
-<Check title="Lines" />
-<h3 className="text-white pt-4">Extra</h3>
-<Check title="Station Density" />
-*/
 
 export default Menu;
