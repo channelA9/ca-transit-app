@@ -14,16 +14,17 @@ const layerOptions = {
     id: 'japan-train-station-layer',
     data: stations,
     getPosition: d => [d.location.lng, d.location.lat],
-    getFillColor: d => [64,64,64],
+    getFillColor: [216,216,216],
     getLineColor: d => [0, 0, 0],
     getRadius: d => (10*(d.lines.length)),
-    opacity: 0.1,
+    opacity: 1,
     stroked: false,
     filled: true,
+    pickable: false,
     radiusUnits: 'meters',
-    radiusScale: 1,
-    radiusMinPixels: 1,
-    radiusMaxPixels: 2,   
+    radiusScale: 10,
+    radiusMinPixels: 0,
+    radiusMaxPixels: 25,   
 }
 
 export const JPTrainStationLayer = {

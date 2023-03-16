@@ -56,7 +56,7 @@ export default function Home() {
     new JPLines.LayerClass(lineLayerOptions)
   );
 
-  const [shownlayers, setShownLayers] = useState([densityLayer,stationLayer, lineLayer]);
+  const [shownlayers, setShownLayers] = useState([stationLayer, lineLayer, densityLayer]);
   const [currentPrefectureId, setPrefectureId] = useState(-1);
   const [prefData, updatePrefectureData] = useState(
     currentPrefectureId !== -1 ? prefectures[currentPrefectureId] : prefectures
@@ -92,7 +92,7 @@ export default function Home() {
     console.log(lineLayerOptions);
   }, [lineLayerOptions]);
   useEffect(() => {
-    setShownLayers([densityLayer, stationLayer, lineLayer]);
+    setShownLayers([ lineLayer, stationLayer, densityLayer]);
   }, [lineLayer]);
 
   return (
@@ -114,7 +114,7 @@ export default function Home() {
           initialViewState={layers[layerId].initialViewState}
           layers={shownlayers}
           controller={true}
-          getTooltip={({object}) => object && `${object}`} 
+          getTooltip={({object}) => object && `${object.lineName} || ${object.from.name} to ${object.to.name}`} 
         >
           <Map
             className=""

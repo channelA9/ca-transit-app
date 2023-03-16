@@ -13,17 +13,18 @@ function parseLinesFromPref(pref) {
     let trueLineData = lines.find(({ id }) => id === lineId);
     for (let i = 0; i < trueLineData.stations.length - 1; i++) {
       lineData.push({
-        color: [200,59,160,(100 + 155/i)],
-        width: (Math.min((trueLineData.stations.length-i)*5,2)),
+        lineName: trueLineData.name.ja,
+        color: [200,59,160,200],
+        width: 3,
         from: {
-          name: trueLineData.stations[i].name.en,
+          name: trueLineData.stations[i].name.ja,
           coordinates: [
             trueLineData.stations[i].location.lng,
             trueLineData.stations[i].location.lat,
           ],
         },
         to: {
-          name: trueLineData.stations[i + 1].name.en,
+          name: trueLineData.stations[i + 1].name.ja,
           coordinates: [
             trueLineData.stations[i + 1].location.lng,
             trueLineData.stations[i + 1].location.lat,
