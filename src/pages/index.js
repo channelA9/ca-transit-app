@@ -110,14 +110,14 @@ export default function Home() {
           setPrefecture={updatePrefecture}
         ></Menu>
         <DeckGL
-          className=""
+          className="w-full h-full"
           initialViewState={layers[layerId].initialViewState}
           layers={shownlayers}
           controller={true}
           getTooltip={({object}) => object && `${object.lineName} || ${object.from.name} to ${object.to.name}`} 
         >
           <Map
-            className=""
+            className="w-full h-full"
             initialViewState={INITIAL_VIEW_STATE}
             mapStyle="mapbox://styles/mapbox/dark-v11"
             mapboxAccessToken={MAPBOX_TOKEN}
